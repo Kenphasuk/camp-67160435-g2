@@ -9,8 +9,8 @@
 
     <style>
         body {  /* พื้นหลัง */
-            background-color: #a64dff; /* สีม่วง */
-            front-family: Arial , sans-serif; /* ฟอนต์ */
+            background-color: #BEA9DF; /* สีม่วง */
+            font-family: "Poppins" , sans-serif; /* ฟอนต์ */
         }
         .center-box { /* กล่องตรงกลาง */
             max-width: 500px;
@@ -87,21 +87,13 @@
             <!-- สีที่ชอบ -->
             <div class="mb-3">
                 <label for="favoriteColor" class="form-label">สีที่ชอบ</label>
-                <select class="form-select" id="favoriteColor">
-                    <option selected>เลือกสีที่ชอบ</option>
-                    <option value="แดง">แดง</option>
-                    <option value="น้ำเงิน">น้ำเงิน</option>
-                    <option value="เขียว">เขียว</option>
-                    <option value="เหลือง">เหลือง</option>
-                     <option value="เหลือง">สีอื่นๆ</option>
-                </select>
+                <input type="color" class="form-control form-control-color" id="favoriteColor" value="#563d7c" title="Choose your color">
             </div>
 
             <!-- แนวเพลงที่ชอบ -->
             <div class="mb-3">
                 <label for="musicGenre" class="form-label">แนวเพลงที่ชอบ</label>
-                <select class="form-select" id="musicGenre">
-                    <option selected>เลือกแนวเพลงที่ชอบ</option>
+                <select class="form-select" id="musicGenre" multiple>
                     <option value="ป็อป">ป็อป</option>
                     <option value="ร็อค">ร็อค</option>
                     <option value="ฮิปฮอป">ฮิปฮอป</option>
