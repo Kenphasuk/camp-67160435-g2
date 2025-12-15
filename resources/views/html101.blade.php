@@ -1,125 +1,234 @@
+<!-- resouces/views/html101.blade.php -->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Workshop HTML</title>
 
-    <!-- stylesheet" -->
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <!-- link ฟอนต์  -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css"/>
 
+    <!-- Google Font -->
+    <link href= "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Font -->
     <style>
-        body {  /* พื้นหลัง */
-            background-color: #BEA9DF; /* สีม่วง */
-            font-family: "Poppins" , sans-serif; /* ฟอนต์ */
-        }
-        .center-box { /* กล่องตรงกลาง */
-            max-width: 500px;
-            margin: 0 auto; /* จัดกึ่งกลาง */
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-        }
-        h1 { /* หัวข้อ Workshop #HTML - FORM  */
-            text-align: center;
-            color: white;
+        body {
+            font-family: 'Poppins', sans-serif;
         }
     </style>
+
 </head>
-
-<body>
+<body style="background-color: #9f60f1ff;">
 <div class="container pt-5">
-    <h1>Workshop #HTML - FORM</h1>
 
-    <div class="center-box">
-        <form>
+    <div class="p-5 shadow-lg bg-white rounded-4">
+        <h1 class="mb-4 text-primary">Workshop #HTML - Form</h1>
 
-            <!-- ชื่อ -->
-            <div class="mb-3">
-                <label for="name" class="form-label">ชื่อ</label>
-                <input type="text" class="form-control" id="name" placeholder="ชื่อ">
-            </div>
+        <form onsubmit="return validateForm();">
 
-            <!-- นามสกุล -->
-            <div class="mb-3">
-                <label for="surname" class="form-label">นามสกุล</label>
-                <input type="text" class="form-control" id="surname" placeholder="นามสกุล">
-            </div>
-
-            <!-- อายุ -->
-            <div class="mb-3">
-                <label for="ages" class="form-label">อายุ</label>
-                <input type="number" class="form-control" id="ages" placeholder="อายุ">
-            </div>
-
-            <!-- วันเกิด -->
-            <div class="mb-3">
-                <label for="birthday" class="form-label">วัน/เดือน/ปีเกิด</label>
-                <input type="date" class="form-control" id="birthday">
-            </div>
-
-            <!-- เพศ -->
-            <div class="mb-3">
-                <label class="form-label">เพศ</label><br>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                    <label class="form-check-label" for="male">ชาย</label>
+            <!-- Name -->
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <label for="fname" class="form-label">ชื่อ</label>
+                    <input type="text" class="form-control" id="fname" placeholder="กรอกชื่อ">
                 </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="female" value="female" checked>
-                    <label class="form-check-label" for="female">หญิง</label>
+                <div class="col-md-6">
+                    <label for="lname" class="form-label">นามสกุล</label>
+                    <input type="text" class="form-control" id="lname" placeholder="กรอกนามสกุล">
                 </div>
             </div>
 
-            <!-- รูป -->
+            <!-- Birthdate -->
             <div class="mb-3">
-                <label for="formFile" class="form-label">รูป</label>
-                <input class="form-control" type="file" id="formFile">
+                <label for="birthdate" class="form-label">วันเดือนปีเกิด</label>
+                <input type="date" class="form-control" id="birthdate">
             </div>
 
-            <!-- ที่อยู่ -->
+            <!-- Gender -->
             <div class="mb-3">
-                <label for="address" class="form-label">ที่อยู่</label>
-                <textarea class="form-control" id="address" rows="3"></textarea>
-            </div>
-
-            <!-- สีที่ชอบ -->
-            <div class="mb-3">
-                <label for="favoriteColor" class="form-label">สีที่ชอบ</label>
-                <input type="color" class="form-control form-control-color" id="favoriteColor" value="#563d7c" title="Choose your color">
-            </div>
-
-            <!-- แนวเพลงที่ชอบ -->
-            <div class="mb-3">
-                <label for="musicGenre" class="form-label">แนวเพลงที่ชอบ</label>
-                <select class="form-select" id="musicGenre" multiple>
-                    <option value="ป็อป">ป็อป</option>
-                    <option value="ร็อค">ร็อค</option>
-                    <option value="ฮิปฮอป">ฮิปฮอป</option>
-                    <option value="แจ๊ส">แจ๊ส</option>
-                    <option value="คลาสสิค">คลาสสิค</option>
-                    <option value="คลาสสิค">อื่นๆ</option>
+                <label for="gender" class="form-label">เพศ</label>
+                <select class="form-select" id="gender">
+                    <option value="" selected>เลือกเพศ</option>
+                    <option value="ชาย">ชาย</option>
+                    <option value="หญิง">หญิง</option>
                 </select>
             </div>
 
-            <!-- ยินยอมให้เก็บข้อมูล -->
+            <!-- Photo -->
             <div class="mb-3">
+                <label for="photo" class="form-label">รูปภาพ</label>
+                <input class="form-control" type="file" id="photo">
+            </div>
+
+            <!-- Address -->
+            <div class="mb-3">
+                <label for="address" class="form-label">ที่อยู่</label>
+                <textarea class="form-control" id="address" rows="3" placeholder="กรอกที่อยู่"></textarea>
+            </div>
+
+            <!-- Color -->
+            <div class="mb-3">
+                <label for="color" class="form-label">สีที่ชอบ</label>
+                <input type="color" class="form-control form-control-color" id="color">
+            </div>
+
+            <!-- Music types -->
+            <div class="mb-3">
+                <label class="form-label">แนวเพลงที่ชอบ</label>
+
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="agree" checked>
-                    <label class="form-check-label" for="agree">ยินยอมให้เก็บข้อมูล</label>
+                    <input class="form-check-input" type="checkbox" id="rock">
+                    <label class="form-check-label" for="rock">ร็อก</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="life">
+                    <label class="form-check-label" for="life">เพื่อชีวิต</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="classic">
+                    <label class="form-check-label" for="classic">คลาสิค</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="pop">
+                    <label class="form-check-label" for="pop">ป๊อป</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="other">
+                    <label class="form-check-label" for="other">อื่นๆ</label>
                 </div>
             </div>
 
-            <!-- ปุ่ม -->
-            <button type="reset" class="btn btn-secondary">Reset</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- Consent -->
+            <div class="mb-3 form-check">
+                <input class="form-check-input" type="checkbox" id="agree">
+                <label class="form-check-label text-danger fw-bold" for="agree">
+                    ยินยอมให้เก็บข้อมูลตามข้อกำหนด
+                </label>
+            </div>
+
+            <!-- Buttons -->
+            <div class="text-end">
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
 
         </form>
-    </div>
 
+    </div>
 </div>
+<script>
+function setInvalid(id) {
+    document.getElementById(id).classList.add("is-invalid");
+}
+
+function setValid(id) {
+    document.getElementById(id).classList.remove("is-invalid");
+}
+
+function validateForm() {
+
+    let valid = true;
+
+    let fname = document.getElementById("fname");
+    let lname = document.getElementById("lname");
+    let birthdate = document.getElementById("birthdate");
+    let gender = document.getElementById("gender");
+    let photo = document.getElementById("photo");
+    let address = document.getElementById("address");
+    let color = document.getElementById("color");
+    let agree = document.getElementById("agree");
+
+    // ===== ชื่อ =====
+    if (fname.value.trim() === "") {
+        setInvalid("fname");
+        valid = false;
+    } else {
+        setValid("fname");
+    }
+
+    // ===== นามสกุล =====
+    if (lname.value.trim() === "") {
+        setInvalid("lname");
+        valid = false;
+    } else {
+        setValid("lname");
+    }
+
+    // ===== วันเกิด =====
+    if (birthdate.value === "") {
+        setInvalid("birthdate");
+        valid = false;
+    } else {
+        setValid("birthdate");
+    }
+
+    // ===== เพศ =====
+    if (gender.value === "") {
+        setInvalid("gender");
+        valid = false;
+    } else {
+        setValid("gender");
+    }
+
+    // ===== รูป =====
+    if (photo.value === "") {
+        setInvalid("photo");
+        valid = false;
+    } else {
+        setValid("photo");
+    }
+
+    // ===== ที่อยู่ =====
+    if (address.value.trim() === "") {
+        setInvalid("address");
+        valid = false;
+    } else {
+        setValid("address");
+    }
+
+    // ===== สี =====
+    if (color.value === "") {
+        setInvalid("color");
+        valid = false;
+    } else {
+        setValid("color");
+    }
+
+    // ===== แนวเพลง =====
+    let musicChecked =
+        document.getElementById("rock").checked ||
+        document.getElementById("life").checked ||
+        document.getElementById("pop").checked ||
+        document.getElementById("other").checked;
+
+    if (!musicChecked) {
+        alert("กรุณาเลือกแนวเพลงที่ชอบอย่างน้อย 1 แนว");
+        valid = false;
+    }
+
+    // ===== ยินยอม =====
+    if (!agree.checked) {
+        agree.classList.add("is-invalid");
+        valid = false;
+    } else {
+        agree.classList.remove("is-invalid");
+    }
+
+    // ===== สรุปผล =====
+    if (!valid) {
+        return false;
+    }
+
+    alert("บันทึกข้อมูลสำเร็จ");
+    return true;
+}
+</script>
+
 </body>
 </html>
