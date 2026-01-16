@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\PokedexController;
 
 Route::get('/', function () {
     return view('html101');
@@ -20,3 +21,5 @@ Route::post('/mycontroller', [App\Http\Controllers\MyController::class, 'process
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/flights', 'FlightController@index');
 });
+
+Route::resource('pokedex', PokedexController::class);
